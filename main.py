@@ -139,6 +139,7 @@ def add_animal():
         race=data['race'],
         colour=data['colour'],
         origin=data['origin']
+        date_of_death=datetime.strptime(data['dod'], '%Y-%m-%d'datetime),
     )
     db.session.add(new_animal)
     db.session.commit()
