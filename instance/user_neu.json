@@ -1,0 +1,13 @@
+{
+    "username": "john_doe",
+    "fname": "John",
+    "lname": "Doe",
+    "street": "Main St",
+    "streetnr": "5",
+    "postal_code": 12345,
+    "town": "Exampletown",
+    "area": "North",
+    "areac": "A1",
+    "country": "Countryland",
+    "dob": "1980-01-01"
+}
