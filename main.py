@@ -42,6 +42,7 @@ class Animal(db.Model):
     race = db.Column(db.String(150), nullable=True)
     colour = db.Column(db.String(100), nullable=True)
     origin = db.Column(db.String(200), nullable=True)
+    date_of_death = db.Column(db.Date)
 
 
 class VetShop(db.Model):
