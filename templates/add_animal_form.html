@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <title>Tier hinzufügen</title>
+</head>
+<body>
+    <h2>Neues Tier hinzufügen</h2>
+    <form id="animalForm">
+        <label>Name: <input type="text" name="animalname" required></label><br>
+        <label>Vorname (Besitzer): <input type="text" name="fname" required></label><br>
+        <label>Nachname (Besitzer): <input type="text" name="lname" required></label><br>
+        <label>Straße: <input type="text" name="street"></label><br>
+        <label>Hausnummer: <input type="text" name="streetnr"></label><br>
+        <label>PLZ: <input type="number" name="postal_code"></label><br>
+        <label>Ort: <input type="text" name="town"></label><br>
+        <label>Region: <input type="text" name="area"></label><br>
+        <label>Region-Code: <input type="text" name="areac"></label><br>
+        <label>Land: <input type="text" name="country"></label><br>
+        <label>Geburtsdatum: <input type="date" name="dob"></label><br>
+        <label>Geburtsort: <input type="text" name="birthtown"></label><br>
+        <label>Anzahl Vorbesitzer: <input type="number" name="nr_pre_owner"></label><br>
+        <label>Impfstatus: <input type="text" name="vaccination"></label><br>
+        <label>Gechippt: <input type="checkbox" name="chipped"></label><br>
+        <label>Rasse: <input type="text" name="race"></label><br>
+        <label>Farbe: <input type="text" name="colour"></label><br>
+        <label>Herkunft: <input type="text" name="origin"></label><br>
+        <label>Sterbedatum: <input type="date" name="dod"></label><br>
+        <button type="submit">Absenden</button>
+    </form>
+
+    <p id="response"></p>
+
+    <script>
+        document.getElementById("animalForm").addEventListener("submit", async function (e) {
+            e.preventDefault();
+            const formData = new FormData(e.target);
+            const data = Object.fromEntries(formData.entries());
+
+            // Checkbox manuell behandeln
+            data.chipped = formData.get("chipped") === "on";
+
+            const response = await fetch("http://localhost:5000/add_animal", {
+                method: "POST",
+                headers: { "Content-Type": "application/json" },
+                body: JSON.stringify(data)
+            });
+
+            const result = await response.json();
+            document.getElementById("response").innerText = result.message || "Fehler beim Hinzufügen";
+        });
+    </script>
+</body>
+</html>

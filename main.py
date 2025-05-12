@@ -99,11 +99,12 @@ def index():
 #def start_page():
 #    return "<h1>Herzlich Willkommen bei t.App i , Deiner TierApp! </h1><a href ='hhtps://google.de'>Google</a>"
 
-# Neuen User hinzuzufügen
+# Formular neuen User hinzuzufügen
 @app.route("/add_user_form")
 def add_user_form():
     return render_template("add_user_form.html")
 
+# Neuen User hinzufügen
 @app.route('/add_user', methods=['GET', 'POST'])
 def add_user():
     data = request.form # Erwartete ursprünglich JSON in der Anfrage (.get_json() )
@@ -124,11 +125,15 @@ def add_user():
     db.session.commit()
     return "<h3>User hinzugefügt!</h3><a href='/'>Zurück</a>"    #{"message": "User hinzugefügt!"}, 201
 
+# Formular neues Tier hinzufügen
+@app.route("/add_animal_form")
+def add_animal_form():
+    return render_template("add_animal_form.html")
 
 # Neues Tier hinzuzufügen
 @app.route('/add_animal', methods=['GET', 'POST'])
 def add_animal():
-    data = request.get_json()
+    data = request.form                      #Erwartet ursprünglich (.get_json() )
     new_animal = Animal(
         animalname=data['animalname'],
         fname=data['fname'],
@@ -152,13 +157,17 @@ def add_animal():
     )
     db.session.add(new_animal)
     db.session.commit()
-    return {"message": "Tier hinzugefügt!"}, 201
+    return "<h3>Neues Tier hinzugefügt!</h3><a href='/'>Zurück</a>"       #{"message": "Tier hinzugefügt!"}, 201
 
+# Formular neuer VetShop
+@app.route("/add_vetshop_form")
+def add_vetshop_form():
+    return render_template("add_vetshop_form.html")
 
 # Neuen VetShop hinzuzufügen
-@app.route('/add_vetshop', methods=['POST'])
+@app.route('/add_vetshop', methods=['GET','POST'])
 def add_vetshop():
-    data = request.get_json()
+    data = request.form                # Erwartete ursprünglich JSON (.get_json()  )
     new_vetshop = VetShop(
         vetshop_name=data['vetshop_name'],
         vetshop_street=data['vetshop_street'],
@@ -172,13 +181,17 @@ def add_vetshop():
     )
     db.session.add(new_vetshop)
     db.session.commit()
-    return {"message": "VetShop hinzugefügt!"}, 201
+    return "<h3>VetShop hinzugefügt!</h3><a href='/'>Zurück</a>"         #{"message": "VetShop hinzugefügt!"}, 201
 
+# Formular neuer Doctor hinzufügen
+@app.route("/add_doctor_form")
+def add_doctor_form():
+    return render_template("add_doctor_form.html")
 
 # Neuen Doctor hinzuzufügen
-@app.route('/add_doctor', methods=['POST'])
+@app.route('/add_doctor', methods=['GET', 'POST'])
 def add_doctor():
-    data = request.get_json()
+    data = request.form                            #Erwartetes JSON (.get_json()  )
     new_doctor = Doctor(
         username=data['username'],
         fname=data['fname'],
@@ -195,13 +208,17 @@ def add_doctor():
     )
     db.session.add(new_doctor)
     db.session.commit()
-    return {"message": "Doctor hinzugefügt!"}, 201
+    return "<h3>Doctor hinzugefügt!</h3><a href='/'>Zurück</a>"         #{"message": "Doctor hinzugefügt!"}, 201
 
+# Formular neuer Shop hinzufügen
+@app.route("/add_shop_form")
+def add_shop_form():
+    return render_template("add_shop_form.html")
 
 # Neuen Shop hinzuzufügen
-@app.route('/add_shop', methods=['POST'])
+@app.route('/add_shop_form', methods=['GET', 'POST'])
 def add_shop():
-    data = request.get_json()
+    data = request.form            #Erwartetes JSON Format (.get_json()  )
     new_shop = Shop(
         shopname=data['shopname'],
         shopfname=data['shopfname'],
@@ -219,7 +236,7 @@ def add_shop():
     )
     db.session.add(new_shop)
     db.session.commit()
-    return {"message": "Shop hinzugefügt!"}, 201
+    return "<h3>Shop hinzugefügt!</h3><a href='/'>Zurück</a>"        #{"message": "Shop hinzugefügt!"}, 201
 
 
 if __name__ == "__main__":

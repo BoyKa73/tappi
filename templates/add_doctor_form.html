@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <title>Doctor hinzufügen</title>
+</head>
+<body>
+    <h2>Doctor hinzufügen</h2>
+    <form action="/add_doctor" method="post">
+        <label>Benutzername: <input type="text" name="username"></label><br>
+        <label>Vorname: <input type="text" name="fname"></label><br>
+        <label>Nachname: <input type="text" name="lname"></label><br>
+        <label>Straße: <input type="text" name="street"></label><br>
+        <label>Hausnummer: <input type="text" name="streetnr"></label><br>
+        <label>PLZ: <input type="number" name="postal_code"></label><br>
+        <label>Stadt: <input type="text" name="town"></label><br>
+        <label>Gebiet: <input type="text" name="area"></label><br>
+        <label>Vorwahl: <input type="text" name="areac"></label><br>
+        <label>Land: <input type="text" name="country"></label><br>
+        <label>Geburtsdatum: <input type="date" name="dob"></label><br>
+        <label>VetShop-ID: <input type="number" name="vetshop_id"></label><br><br>
+        <button type="submit">Doctor speichern</button>
+    </form>
+</body>
+</html>
