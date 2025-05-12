@@ -1,6 +1,7 @@
-from flask import Flask, request
+from flask import Flask, render_template, request
 from flask_sqlalchemy import SQLAlchemy
 from datetime import datetime
+from flask import render_template
 
 
 app = Flask(__name__)
@@ -89,15 +90,23 @@ class Shop(db.Model):
     shopcontent = db.Column(db.String(200), nullable=True)
     shopcategories = db.Column(db.String(200), nullable=True)
 
-
+# Startseite öffnen
 @app.route("/")
-def start_page():
-    return "<h1>Herzlich Willkommen bei t.App i , Deiner TierApp! </h1><a href ='hhtps://google.de'>Google</a>"
+def index():
+    return render_template("index.html")
+
+#@app.route("/")
+#def start_page():
+#    return "<h1>Herzlich Willkommen bei t.App i , Deiner TierApp! </h1><a href ='hhtps://google.de'>Google</a>"
 
 # Neuen User hinzuzufügen
-@app.route('/add_user', methods=['POST'])
+@app.route("/add_user_form")
+def add_user_form():
+    return render_template("add_user_form.html")
+
+@app.route('/add_user', methods=['GET', 'POST'])
 def add_user():
-    data = request.get_json()  # Erwartet JSON-Daten in der Anfrage
+    data = request.form # Erwartete ursprünglich JSON in der Anfrage (.get_json() )
     new_user = User(
         username=data['username'],
         fname=data['fname'],
@@ -113,11 +122,11 @@ def add_user():
     )
     db.session.add(new_user)
     db.session.commit()
-    return {"message": "User hinzugefügt!"}, 201
+    return "<h3>User hinzugefügt!</h3><a href='/'>Zurück</a>"    #{"message": "User hinzugefügt!"}, 201
 
 
 # Neues Tier hinzuzufügen
-@app.route('/add_animal', methods=['POST'])
+@app.route('/add_animal', methods=['GET', 'POST'])
 def add_animal():
     data = request.get_json()
     new_animal = Animal(
@@ -138,8 +147,8 @@ def add_animal():
         chipped=data['chipped'],
         race=data['race'],
         colour=data['colour'],
-        origin=data['origin']
-        date_of_death=datetime.strptime(data['dod'], '%Y-%m-%d'datetime),
+        origin=data['origin'],
+        date_of_death=datetime.strptime(data['dod'], '%Y-%m-%d'),
     )
     db.session.add(new_animal)
     db.session.commit()

@@ -1,0 +1,21 @@
+{
+  "animalname": "Bella",
+  "fname": "John",
+  "lname": "Doe",
+  "street": "Hauptstraße",
+  "streetnr": "5",
+  "postal_code": 12345,
+  "town": "Beispielstadt",
+  "area": "Nord",
+  "areac": "A1",
+  "country": "Deutschland",
+  "dob": "2020-05-01",
+  "birthtown": "Berlin",
+  "nr_pre_owner": 1,
+  "vaccination": "Tollwut, Parvo",
+  "chipped": true,
+  "race": "Labrador",
+  "colour": "Schwarz",
+  "origin": "Tierheim Berlin",
+  "dod": "2023-12-01"
+}

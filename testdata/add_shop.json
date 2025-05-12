@@ -1,0 +1,15 @@
+{
+  "shopname": "Tierbedarf24",
+  "shopfname": "Max",
+  "shoplname": "Mustermann",
+  "shopstreet": "Einkaufsstraße",
+  "shopstreetnr": "10",
+  "shoppostal_code": 67890,
+  "shoptown": "Shopstadt",
+  "shoparea": "Süd",
+  "shopareac": "S1",
+  "shopcountry": "Deutschland",
+  "shopstart": "2022-01-01",
+  "shopcontent": "Futter, Spielzeug, Zubehör",
+  "shopcategories": "Hunde, Katzen, Vögel"
+}

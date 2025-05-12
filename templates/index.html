@@ -11,7 +11,7 @@
 
     <nav class="navbar navbar-expand-lg bg-body-tertiary">
   <div class="container-fluid">
-    <a class="navbar-brand" href="#">Navbar</a>
+    <a class="navbar-brand" href="{{ url_for('index') }}">Navbar t.App i</a>
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
@@ -49,7 +49,7 @@
     <div class="container">
 
 
-    <div id="carouselExampleIndicators" class="carousel slide">
+    <div id="carouselExampleIndicators" class="carousel slide" data-bs-ride="carousel" data-bs-interval="3000" data-bs-pause="hover">
   <div class="carousel-indicators">
     <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
     <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1" aria-label="Slide 2"></button>
@@ -57,23 +57,23 @@
   </div>
   <div class="carousel-inner">
 <div class="carousel-item active">
-  <img src="/static/images/Emma u Rüdi.jpg" class="d-block w-100" alt="Emma und Rüdi">
+  <img src="{{ url_for('static', filename='images/Emma_u_Rüdi.jpg') }}" class="d-block w-100" alt="Emma und Rüdi">
 </div>
-<div class="carousel-item active">
+<div class="carousel-item">
   <img src="/static/images/IMG_1370.jpg" class="d-block w-100" alt="Karlsson">
 </div>
-<div class="carousel-item active">
+<div class="carousel-item ">
   <img src="https://via.placeholder.com/800x400.png?text=Beispielbild" class="d-block w-100" alt="Slide3">
 </div>
 
   </div>
-  <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
-    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-    <span class="visually-hidden">Previous</span>
+   <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
+    <span class="carousel-control-prev-icon"></span>
+    <span class="visually-hidden">Zurück</span>
   </button>
   <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="next">
-    <span class="carousel-control-next-icon" aria-hidden="true"></span>
-    <span class="visually-hidden">Next</span>
+    <span class="carousel-control-next-icon"></span>
+    <span class="visually-hidden">Weiter</span>
   </button>
 </div>
 </div>
